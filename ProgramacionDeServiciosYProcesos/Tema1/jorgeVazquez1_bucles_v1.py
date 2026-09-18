@@ -24,5 +24,5 @@ for i in range(6):
         impar +=1
         producto = producto *resp
 
-print(f"La suma de los pares es {total} y hay {par} pares")
-print(f"El producto de los impares es {producto} y hay {inpar} inpares")
+print("La suma de los pares es {} y hay {} pares".format(total,par))
+print(f"El producto de los impares es {producto} y hay {impar} impares")
