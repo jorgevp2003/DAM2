@@ -1,6 +1,0 @@
-target/
-bin/
-.log
-.DS_Store
-*.class
-Thumbs.db
