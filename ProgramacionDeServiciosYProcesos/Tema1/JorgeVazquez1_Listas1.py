@@ -1,3 +1,4 @@
+import random
 '''
 Crear una lista con 20 números y sobre ella:
 
@@ -51,3 +52,14 @@ lst3 = lst[-4 :]
 print("Lista 3")
 for d in lst3:
      print(d)
+
+
+# Creacion de una lista de manera aleatoria
+listaRandom = []
+for i in range(20):
+     listaRandom.append(random.randint(1,20))
+
+print("Lista random")
+
+for i in listaRandom:
+     print(i)
