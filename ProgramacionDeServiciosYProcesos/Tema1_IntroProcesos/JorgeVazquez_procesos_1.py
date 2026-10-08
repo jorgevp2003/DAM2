@@ -2,30 +2,43 @@ import time
 import multiprocessing as mp
 import os
 
-w = open("texto.txt", "w",encoding="UTF-8")
+
 r = open("texto.txt", "r",encoding="UTF-8")
 
 def int_Texto(txt):
-    if (txt != 'exit') & (txt != '-1'):
-         w.write(txt)
-    w.flush
+    with open("texto.txt","a",encoding="UTF=8") as w:
+         w.write(txt+"\n")
+    
 
 
 def imprimir():
-    time(500)
-    print(r.read)
+    time.sleep(5)
+    print("==========================")
+    print(r.read())
+    print("==========================")
 
 def mostrar_Datos():
-    print(mp.current_process().pid)
+    print(f"Proceso ID:{mp.current_process().pid}")
 
 def main():
-    resp = 'Respuesta'
-    while resp != 'exit':
+    salir = False
+    while salir != True:
+        resp = input("Introduce el texto: (-1 para salir, -P para ver datos) ")
         if resp == '-1':
             mostrar_Datos()
+            salir = True
+           
+        elif (resp == '-P'):
+            p1 = mp.Process(target=imprimir)
+            p1.start()
+            time.sleep(6)
+            p1.kill
         else:
-            resp = input("Introduce el texto: ")
             int_Texto(resp)
 
+        
+        
 
-main()
+
+if __name__ == "__main__":
+    main()
