@@ -4,3 +4,19 @@ yo bien
 hola que tyal
 yo bien
 Hola
+Hola
+-1
+estas
+tal
+que
+hola
+& C:/Users/alumno/AppData/Local/Programs/Python/Python313/python.exe c:/Users/alumno/Documents/GitHub/DAM2/ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_MPComQueue2.py
+-1
+estas
+tal
+que
+hola
+-1
+tu que tal
+yo estoy bien
+hola que tal
