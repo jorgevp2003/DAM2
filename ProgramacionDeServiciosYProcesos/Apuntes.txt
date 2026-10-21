@@ -1,0 +1,26 @@
+===========================================
+            THREADING
+===========================================
+
+Creacion 
+
+t = threading.thread(target = metodo)
+t = threading.thread(target = metodo, args=(1,))
+
+Metodos 
+
+t.start() Inicia el hilo
+t.join() Espera a que un hilo termine para iniciar el siguiente.
+t.name() Devuelve el nombre del hilo
+t.is_alive() Para saber si sigue en ejecucion.
+
+Metoodos Padre
+
+threading.current_thread() Hilo ejecutandose
+threading.active_count() Numero de hilos en ejecucion
+threading.enumerate() ?
+
+Crear espacio local
+
+mydata = threading.local()
+mydata.x = 1

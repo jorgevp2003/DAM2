@@ -17,7 +17,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b3209e3-7543-47ab-8f9f-8f5be8bdb15a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1/JorgeVazquez1_Listas1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1/JorgeVazquez1_Listas1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Apuntes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Apuntes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_Camaras.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_Camaras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_procesos_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_procesos_2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +29,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\alumno\.android\avd\Pixel_3a_API_36_extension_level_17_x86_64.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\alumno\.android\avd\Nexus_6_API_22.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -51,9 +53,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="3JgGf9SeyGVcJuN95g0VuO4WP1k" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -62,18 +64,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Text1.app.main" />

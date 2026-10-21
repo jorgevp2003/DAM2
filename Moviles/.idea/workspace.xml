@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9f801c3d-a4d7-462c-8dfc-22a1ec61d3af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/androidTest/java/com/example/ciclodevida/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/java/com/example/ciclodevida/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/java/com/example/ciclodevida/ui/theme/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/java/com/example/ciclodevida/ui/theme/Theme.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/java/com/example/ciclodevida/ui/theme/Type.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/java/com/example/miprimeraapp/Activity2.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/layout/activity_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/app/src/test/java/com/example/ciclodevida/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/gradle/libs.versions.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CicloDeVida/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kotlin_Prueba1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../KotlinConJetpack/app/src/main/java/com/example/kotlinconjetpack/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../KotlinConJetpack/app/src/main/java/com/example/kotlinconjetpack/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Apuntes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Apuntes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_Camaras.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_Camaras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_procesos_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionDeServiciosYProcesos/Tema1_IntroProcesos/JorgeVazquez_procesos_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgramacionMultimedia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgramacionMultimedia/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="3Kzyfb6JLtNGVIRV2wDYdw1FQCp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f801c3d-a4d7-462c-8dfc-22a1ec61d3af" name="Changes" comment="" />
+      <created>1792574796111</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792574796111</updated>
+    </task>
+    <servers />
+  </component>
+</project>

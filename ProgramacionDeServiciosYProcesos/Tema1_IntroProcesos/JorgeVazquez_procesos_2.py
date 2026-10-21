@@ -1,6 +1,6 @@
 import procesoExterno
 import subprocess as sb
-import time
+
 
 def main():
     salida = 0
