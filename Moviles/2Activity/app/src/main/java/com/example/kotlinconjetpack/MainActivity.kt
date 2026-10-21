@@ -1,7 +1,9 @@
 package com.example.kotlinconjetpack
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -40,6 +42,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kotlinconjetpack.ui.theme.KotlinConJetpackTheme
 import java.lang.ArithmeticException
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
 
 
 class MainActivity : ComponentActivity() {
@@ -64,8 +68,29 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        cajas()
 
+                        Button(
+                            onClick = {
 
+                                val intent = Intent(
+                                    intent.putExtra("numero",1)
+                                    intent.putExtra("nombre","Jorge")
+                                    this@MainActivity,
+                                    SegundaActivity::class.java
+
+                                )
+                                startActivity(intent)
+                            }
+                        ) {
+                            Text("Ir a la segunda pantalla")
+                        }
+                    }
                 }
             }
         }
@@ -73,11 +98,18 @@ class MainActivity : ComponentActivity() {
 }
 
 
+
 @Composable
-fun cajas(){
-    <ImageView
-     />
+fun cajas() {
+    Image(
+        painter = painterResource(id = R.drawable.logociudadescolar),
+        contentDescription = "Mi imagen",
+        modifier = Modifier.size(200.dp)
+    )
 }
+
+
+
 
 @Preview(showBackground = true)
 @Composable
