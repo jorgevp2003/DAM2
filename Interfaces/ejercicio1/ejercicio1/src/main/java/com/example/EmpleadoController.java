@@ -28,7 +28,7 @@ public class EmpleadoController {
     @FXML 
     private TextField txtSalario;
     @FXML 
-    private RadioButton radioJornada;
+    private ComboBox radioJornada;
     @FXML 
     private DatePicker dateIncorporacion;
     @FXML 
@@ -46,7 +46,7 @@ public class EmpleadoController {
             "Ventas",
             "Produccion"
         );
-
+ 
         comboContrato.getItems().addAll(
             "Indefinido",
             "Temporal",
