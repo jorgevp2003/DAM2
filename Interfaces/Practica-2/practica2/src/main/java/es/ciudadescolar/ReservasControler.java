@@ -63,7 +63,7 @@ public class ReservasControler {
     @FXML 
     public void crearReserva(){
         Boolean valido = true;
-        String mensaje;
+        String mensaje ="";
        
        String nombre = txtNombre.toString();
        String apellido = txtApellido.toString();
@@ -89,7 +89,7 @@ public class ReservasControler {
         //Textos no vacios
         if(apellido.replace(" ","").equals("")){
             valido = false;
-            mensaje += ""
+            
         }
         if(dni.replace(" ","").equals("")){
             valido = false;
