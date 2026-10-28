@@ -1,7 +1,10 @@
 package com.example.alarma
 
 import android.content.Intent
+import android.Manifest
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.AlarmClock
 import androidx.activity.ComponentActivity
@@ -16,11 +19,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.alarma.ui.theme.AlarmaTheme
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 
 
 class MainActivity : ComponentActivity() {
+    private val pedirPermisoLlamada =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { concedido ->
+            if (concedido) {
+                hacerLlamada()
+            } else {
+                Toast.makeText(this, "Permiso de llamada denegado", Toast.LENGTH_SHORT).show()
+            }
+        }
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
        // val alarma = packageManager.getLaunchIntentForPackage("com.google.android.deskclock")
         super.onCreate(savedInstanceState)
@@ -41,10 +56,10 @@ class MainActivity : ComponentActivity() {
                         Text("Ir a alarma")
                     }
 
-                    Button(onClick = {
-                        crearLlamada()
+                    Button(onClick = {crearLlamada() })
 
-                    }) {
+
+                    {
                         Text("Llamar")
                     }
                 }
@@ -62,12 +77,24 @@ class MainActivity : ComponentActivity() {
         startActivity(intent)
     }
 
-    fun crearLlamada(){
-        //val intent = Intent(Intent.ACTION_DIAL, android.net.Uri.parse("tel:+34674274634"))
-        val intent2 = Intent(Intent.ACTION_CALL, Uri.parse("tel:+34674274634"))
-        //startActivity(intent)
 
-        startActivity(intent2)
+    private fun crearLlamada() {
+        val tienePermiso = ContextCompat.checkSelfPermission(
+            this, Manifest.permission.CALL_PHONE
+        ) == PackageManager.PERMISSION_GRANTED
+
+        if (tienePermiso) {
+            hacerLlamada()
+        } else {
+            pedirPermisoLlamada.launch(Manifest.permission.CALL_PHONE)
+        }
+    }
+
+
+    fun hacerLlamada(){
+        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:+34674274634"))
+        startActivity(intent)
+    }
     }
 
     @Preview(showBackground = true)
@@ -75,4 +102,3 @@ class MainActivity : ComponentActivity() {
     fun GreetingPreview() {
 
     }
-}
