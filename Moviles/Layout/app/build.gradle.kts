@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.layout"
+    namespace = "com.example.layout1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.layout"
-        minSdk = 21
+        applicationId = "com.example.layout1"
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -66,7 +66,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0")
-
-
 }
