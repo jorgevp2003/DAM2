@@ -52,4 +52,8 @@ public class CampoTexto extends VBox {
         return campo.textProperty();
     }   
     
+    //Devuelve el texto de ayuda del campo.
+public String getTextoAyuda() {
+    return campo.getPromptText();
+}
 }

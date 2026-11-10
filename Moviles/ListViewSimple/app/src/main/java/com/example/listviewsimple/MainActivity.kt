@@ -1,42 +1,60 @@
-package com.example.listviewsimple
+package com.example.listviewpersonalizado
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
-import java.util.ArrayList
+import android.widget.Toolbar
 
+class MainActivity : Activity() {
+    private val ejemploslist = listOf("Ejemplo 1", "Ejemplo 2", "Ejemplo 3", "Ejemplo 4")
 
-class MainActivity : Activity(), AdapterView.OnItemClickListener {
-    private lateinit var lista : ListView
-    private lateinit var ejemploslist :MutableList<String>
-
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lista = ListView(this)
-        setContentView(lista)
+        val raiz = LinearLayout(this)
+        raiz.orientation = LinearLayout.VERTICAL
 
-        ejemploslist = ArrayList()
-        ejemploslist.add("Ejemplo1")
-        ejemploslist.add("Ejemplo2")
-        ejemploslist.add("Ejemplo3")
-        ejemploslist.add("Ejemplo4")
+        // Si el tema del manifiesto no trae barra, creamos una nosotros
+        var toolbar: Toolbar? = null
+        if (actionBar == null) {
+            toolbar = Toolbar(this)
+            toolbar.title = "ListViewSimple"
+            raiz.addView(toolbar, LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ))
+        }
 
-        val adaptadorEjemplo = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, ejemploslist)
-        lista.adapter = adaptadorEjemplo
-        lista.onItemClickListener = this
+        val texto = TextView(this)
+        texto.text = "Pulsa los tres puntos de la barra superior"
+        raiz.addView(texto)
+
+        setContentView(raiz)
+        if (toolbar != null) setActionBar(toolbar)
     }
 
-
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position:Int, id:Long){
-        Toast.makeText(this,
-            "El ejemplo seleccionado es: "+ejemploslist[position],
-            Toast.LENGTH_SHORT).show()
+    // Crear el menú: una opción por cada elemento de la lista
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        ejemploslist.forEachIndexed { posicion, ejemplo ->
+            menu.add(Menu.NONE, posicion, Menu.NONE, ejemplo)
+        }
+        return true
     }
 
+    // Al pulsar una opción, mostrar el mensaje
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId in ejemploslist.indices) {
+            Toast.makeText(
+                this,
+                "El ejemplo seleccionado es: ${ejemploslist[item.itemId]}",
+                Toast.LENGTH_SHORT
+            ).show()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
-

@@ -31,11 +31,25 @@ class MainActivity : Activity() {
         const val OPCION_ALCOBENDAS = 8
         const val OPCION_LASTABLAS = 9
         const val OPCION_TRESOLIVOS = 10
+
+        const val OPCION_MADRID = 11
+        const val OPCION_CATALUÑA = 12
+        const val OPCION_ARAGON = 13
     }
 
     // Fuera de onCreate para poder usarla en onCreateContextMenu
     private val comunidades = listOf("Madrid", "Cataluña", "Aragón")
 
+    /*=============================================================
+                         Creacion   Menu
+     ==============================================================*/
+
+    override fun onCreateOptionsMenu(miMenu: Menu): Boolean {
+        miMenu.add(0, OPCION_MADRID, "Madrid")
+        miMenu.add(0, OPCION_CATALUÑA, "Cataluña")
+        miMenu.add(0, OPCION_ARAGON, "Aragon")
+        return true
+    }
     /*===============================================================
                             PANTALLA: BARRA + LISTA
      ================================================================*/
@@ -79,7 +93,9 @@ class MainActivity : Activity() {
         val comunidad = comunidades[info.position]
 
         when (comunidad) {
+            "Madrid" ->{
 
+            }
             "Cataluña" -> {
                 menu.setHeaderTitle("Cataluña")
                 menu.add(Menu.NONE, OPCION_BARCELONA, Menu.NONE, "Barcelona")

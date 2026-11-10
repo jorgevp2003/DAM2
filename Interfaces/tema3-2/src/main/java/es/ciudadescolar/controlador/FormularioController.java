@@ -12,7 +12,7 @@ public class FormularioController {
 
         vista.getBtnGuardar().setOnAction(event -> guardarPersona());
         vista.getBtnLimpiar().setOnAction(event -> limpiarPersona());
-        vista.getBtnLimpiar().setOnMouseEntered(event -> vista.getLblInfo().setText("Pulsar limpiar borrara todos los campos"));
+        //vista.getBtnLimpiar().setOnMouseEntered(event -> vista.getLblInfo().setText("Pulsar limpiar borrara todos los campos"));
         vista.getBtnLimpiar().setOnMouseExited(event -> vista.getLblInfo().setText(""));
         vista.getTxtNombre().textProperty().addListener((observable, anterior, nuevo) -> actualizarEstado());
         vista.getTxtApellidos().textProperty().addListener((observable,anterior,nuevo)-> actualizarEstado());
@@ -25,7 +25,7 @@ public class FormularioController {
         String apellidos = vista.getTxtApellidos().getTexto().trim();
         String dni = vista.getTxtDni().getTexto().trim();
         if (nombre.isEmpty() || apellidos.isEmpty() || dni.isEmpty()) {
-        System.out.println("Debes completar todos los campos.");
+        System.out.println("Debes completar todos los campos."); 
         return;
     
     Persona persona = new Persona(nombre, apellidos, dni);
@@ -50,10 +50,14 @@ public class FormularioController {
         if (nombre.isEmpty()) 
         {
         pendientes.append("Nombre, ");
+        } else if(nombre.length()<3){
+            pendientes.append("Nombre tiene que ocupar minimo 3 letras,");
         }
         if (apellidos.isEmpty()) 
         {
         pendientes.append("Apellidos, ");
+        }else if(apellidos.length()<3){
+            pendientes.append("Apellidos tiene que ocupar minimo 3 letras,");
         }
         if (dni.isEmpty()) 
         {
