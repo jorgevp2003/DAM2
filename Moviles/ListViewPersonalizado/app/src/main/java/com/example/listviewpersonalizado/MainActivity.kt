@@ -1,95 +1,95 @@
-package com.example.menus
+package com.example.listviewpersonalizado
 
+import android.R
 import android.app.Activity
+import android.content.Context
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
-import android.widget.Toolbar
+import android.widget.ListView
+import android.widget.TextView
+import java.util.ArrayList
+
 
 class MainActivity : Activity() {
-    /*===============================================================
-                            ASIGNAMOS ID A CADA OPCION
-     ================================================================*/
-    companion object {
-        // Cataluña
-        const val OPCION_BARCELONA = 1
-        const val OPCION_GIRONA = 2
-        const val OPCION_LLEIDA = 3
-        const val OPCION_TARRAGONA = 4
+    private lateinit var lista: ListView
+    private lateinit var ejemploList: MutableList<Ejemplo>
 
-        // Aragón
-        const val OPCION_HUESCA = 5
-        const val OPCION_TERUEL = 6
-        const val OPCION_ZARAGOZA = 7
-
-        // Madrid
-        const val OPCION_ALCOBENDAS = 8
-        const val OPCION_LASTABLAS = 9
-        const val OPCION_TRESOLIVOS = 10
-    }
-
-    /*===============================================================
-                            PANTALLA: SOLO LA BARRA
-     ================================================================*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val raiz = LinearLayout(this)
-        raiz.orientation = LinearLayout.VERTICAL
+        lista = ListView(this)
+        setContentView(lista)
 
-        val toolbar = Toolbar(this)
-        toolbar.title = "Menu"
-        raiz.addView(
-            toolbar, LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-        )
+        ejemploList = ArrayList()
 
-        setContentView(raiz)
-        setActionBar(toolbar)
+        ejemploList.add(Ejemplo("Título Ejemplo 1", "Subtítulo Ejemplo 1", "", 1))
+        ejemploList.add(Ejemplo("Título Ejemplo 2", "Subtítulo Ejemplo 2", "", 2))
+        ejemploList.add(Ejemplo(titulo = "Título Ejemplo 3", subtitulo = "Subtítulo Ejemplo 3", numeroEjemplo = 3))
+        ejemploList.add(Ejemplo(titulo = "Título Ejemplo 4", subtitulo = "Subtítulo Ejemplo 4", numeroEjemplo = 4))
+
+        val adaptadorEjemplo = MiAdaptadorEjemplo(this, ejemploList)
+        lista.adapter = adaptadorEjemplo
     }
 
-    /*===============================================================
-                CREAMOS EL MENU CON UN SUBMENU POR COMUNIDAD
-     ================================================================*/
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val madrid = menu.addSubMenu("Madrid")
-        madrid.add(Menu.NONE, OPCION_ALCOBENDAS, Menu.NONE, "Alcobendas")
-        madrid.add(Menu.NONE, OPCION_LASTABLAS, Menu.NONE, "Las Tablas")
-        madrid.add(Menu.NONE, OPCION_TRESOLIVOS, Menu.NONE, "Tres Olivos")
+    class MiAdaptadorEjemplo(
+        private val ctx: Context,
+        private val ejemploList: List<Ejemplo>
+    ) : ArrayAdapter<Ejemplo>(ctx, 0, ejemploList) {
 
-        val cataluna = menu.addSubMenu("Cataluña")
-        cataluna.add(Menu.NONE, OPCION_BARCELONA, Menu.NONE, "Barcelona")
-        cataluna.add(Menu.NONE, OPCION_GIRONA, Menu.NONE, "Girona")
-        cataluna.add(Menu.NONE, OPCION_LLEIDA, Menu.NONE, "Lleida")
-        cataluna.add(Menu.NONE, OPCION_TARRAGONA, Menu.NONE, "Tarragona")
+        private fun dp(valor: Int): Int =
+            (valor * ctx.resources.displayMetrics.density).toInt()
 
-        val aragon = menu.addSubMenu("Aragón")
-        aragon.add(Menu.NONE, OPCION_HUESCA, Menu.NONE, "Huesca")
-        aragon.add(Menu.NONE, OPCION_TERUEL, Menu.NONE, "Teruel")
-        aragon.add(Menu.NONE, OPCION_ZARAGOZA, Menu.NONE, "Zaragoza")
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup):
 
-        return true
-    }
+                View {
+            // Obtener la información del elemento que estamos recorriendo
+            val elementoActual = ejemploList[position]
 
-    /*===============================================================
-                    CUANDO SE PULSE UNA OPCION PASA:
-     ================================================================*/
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val mensaje = when (item.itemId) {
-            OPCION_ALCOBENDAS, OPCION_LASTABLAS, OPCION_TRESOLIVOS -> "${item.title}"
-            OPCION_BARCELONA -> "${item.title}: Sabadell, Terrassa y Badalona"
-            OPCION_GIRONA -> "${item.title}: Figueres, Blanes y Olot"
-            OPCION_LLEIDA -> "${item.title}: Tàrrega, Balaguer y Mollerussa"
-            OPCION_TARRAGONA -> "${item.title}: Reus, Tortosa y Cambrils"
-            OPCION_HUESCA -> "${item.title}: Jaca, Barbastro y Monzón"
-            OPCION_TERUEL -> "${item.title}: Alcañiz, Andorra y Calamocha"
-            OPCION_ZARAGOZA -> "${item.title}: Calatayud, Ejea de los Caballeros y Tarazona"
-            else -> return super.onOptionsItemSelected(item)
+            // Fila horizontal: imagen + columna de textos
+            val fila = LinearLayout(ctx)
+            fila.orientation = LinearLayout.HORIZONTAL
+            fila.setPadding(dp(16), dp(8), dp(16), dp(8))
+
+            // Imagen (79dp x 76dp, como en los apuntes)
+            val imageViewFoto = ImageView(ctx)
+            imageViewFoto.setImageResource(R.mipmap.sym_def_app_icon)
+            fila.addView(imageViewFoto, LinearLayout.LayoutParams(dp(79),
+                dp(76)))
+
+            // Columna vertical para los tres textos
+            val columna = LinearLayout(ctx)
+            columna.orientation = LinearLayout.VERTICAL
+            columna.setPadding(dp(8), 0, 0, 0)
+            fila.addView(columna)
+            val textViewTitulo = TextView(ctx)
+            textViewTitulo.setTypeface(null, Typeface.BOLD)
+            textViewTitulo.setTextColor(Color.BLACK)
+            columna.addView(textViewTitulo)
+            val textViewSubtitulo = TextView(ctx)
+            textViewSubtitulo.setPadding(0, dp(8), 0, 0)
+            columna.addView(textViewSubtitulo)
+            val textViewNumero = TextView(ctx)
+            textViewNumero.setPadding(0, dp(8), 0, 0)
+            columna.addView(textViewNumero)
+
+            // Poner la información del elemento actual en la interfaz
+            textViewTitulo.text = elementoActual.titulo
+            textViewSubtitulo.text = elementoActual.subtitulo
+            textViewNumero.text = elementoActual.numeroEjemplo.toString()
+            return fila
         }
-        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
-        return true
     }
+    data class Ejemplo(
+        var titulo: String = "",
+        var subtitulo: String = "",
+        var urlFoto: String = "",
+        var numeroEjemplo: Int = 0
+    )
+
+
 }
