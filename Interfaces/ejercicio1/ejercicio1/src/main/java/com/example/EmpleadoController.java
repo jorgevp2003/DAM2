@@ -28,7 +28,7 @@ public class EmpleadoController {
     @FXML 
     private TextField txtSalario;
     @FXML 
-    private ComboBox radioJornada;
+    private RadioButton radioJornada;
     @FXML 
     private DatePicker dateIncorporacion;
     @FXML 

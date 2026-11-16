@@ -1,0 +1,30 @@
+/* Hoja de estilos global. Se carga en Main con scene.getStylesheets().add(...) */
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f5f7fa;
+}
+
+.titulo {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #263238;
+}
+
+.estado {
+    -fx-text-fill: #546e7a;
+    -fx-font-style: italic;
+}
+
+.button {
+    -fx-cursor: hand;
+}
+
+.button:disabled {
+    -fx-opacity: 0.5;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+}

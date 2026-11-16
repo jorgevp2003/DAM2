@@ -1,0 +1,6 @@
+com\ejemplo\vista\ResumenView.class
+com\ejemplo\modelo\Incidencia.class
+com\ejemplo\controlador\FormularioController.class
+com\ejemplo\controlador\ResumenController.class
+com\ejemplo\Main.class
+com\ejemplo\vista\FormularioView.class

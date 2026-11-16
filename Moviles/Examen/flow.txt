@@ -1,0 +1,15 @@
+FLOW - Examen
+=============
+Examen (paquete com.example.examen)
+  MainActivity --lanzadorResultado--> SegundaActivity --setResult(EXTRA_RESPUESTA)--> MainActivity
+  MainActivity --startActivity--> XmlActivity (res/layout/activity_xml.xml)
+  MainActivity --startActivity--> ListaActivity (ListView + MiAdaptador + menús; usa Elemento.kt y res/menu/menu_principal.xml)
+  MainActivity --comprobarPermiso--> lanzadorPermiso --> accionConPermiso()
+  Utils.kt (toast, dp, TAG) lo usan MainActivity y ListaActivity.
+  EXAMEN.md = guía rápida.
+
+Build: Gradle 8.9 | AGP 8.7.3 | Kotlin 2.0.21 | Compose BOM 2024.12.01 (ver ../_ModeloProyecto)
+
+CHANGELOG
+---------
+2026-11-16  Esqueleto creado (Main/Segunda/Xml/Lista Activity, Elemento, Utils). assembleDebug y tests OK.

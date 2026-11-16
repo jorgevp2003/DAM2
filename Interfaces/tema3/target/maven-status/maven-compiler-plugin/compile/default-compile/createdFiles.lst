@@ -1,2 +1,4 @@
+es\ciudadescolar\model\Persona.class
 es\ciudadescolar\Main.class
 es\ciudadescolar\componentes\CampoTexto.class
+es\ciudadescolar\vista\FormularioView.class

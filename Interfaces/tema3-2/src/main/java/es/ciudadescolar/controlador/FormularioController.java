@@ -27,7 +27,8 @@ public class FormularioController {
         if (nombre.isEmpty() || apellidos.isEmpty() || dni.isEmpty()) {
         System.out.println("Debes completar todos los campos."); 
         return;
-    
+        }
+
     Persona persona = new Persona(nombre, apellidos, dni);
     System.out.println("Persona registrada correctamente.");
     System.out.println("Nombre: " + persona.getNombre());

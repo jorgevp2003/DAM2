@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Examen</string>
+    <string name="hint_entrada">Escribe aquí</string>
+    <string name="accion">Aceptar</string>
+    <string name="ajustes">Ajustes</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Menú definido en XML. Se carga con menuInflater.inflate(R.menu.menu_opciones, menu)
+     showAsAction: never = dentro de los 3 puntos ; ifRoom / always = como icono en la barra -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/accion_buscar"
+        android:icon="@android:drawable/ic_menu_search"
+        android:showAsAction="ifRoom"
+        android:title="Buscar" />
+    <item
+        android:id="@+id/accion_ajustes"
+        android:showAsAction="never"
+        android:title="Ajustes" />
+</menu>

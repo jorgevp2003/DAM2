@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema general (sirve para ComponentActivity con Compose y para AppCompatActivity con XML) -->
+    <style name="Theme.Examen" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!-- Tema para Activity "clásicas" (android.app.Activity) que usan android.widget.Toolbar + setActionBar() -->
+    <style name="Theme.Examen.Clasico" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

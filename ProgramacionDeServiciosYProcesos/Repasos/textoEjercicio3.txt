@@ -1,0 +1,9 @@
+hola
+hola
+que tal
+yo bien
+hola
+yo bien
+C:\Users\jvpfp\.local\bin\python3.14.exe c:/Users/jvpfp/Documents/GitHub/DAM2/ProgramacionDeServiciosYProcesos/Repasos/ejercicio3.py
+hola
+que tal

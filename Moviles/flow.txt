@@ -1,0 +1,43 @@
+FLOW - Moviles (DAM2)
+=====================
+
+ESTRUCTURA
+----------
+_ModeloProyecto/   Plantilla Gradle común (versiones + dependencias). NO es una app, es la base.
+EjemploTodo/       App de resumen: un índice que abre una Activity por cada tema visto en clase.
+Examen/            App esqueleto lista para el examen (compila, con TODOs).
+(resto)            Proyectos de clase originales (sin tocar): 2Activity, Alarma, CicloDeVida,
+                   GridViewPersonalizado, Kotlin_Prueba1, KotlinConJetpack, Layout, Layout1,
+                   Layout12, ListViewPersonalizado, ListViewSimple, Menu2, Menus, MyApplication.
+
+RELACIÓN ENTRE PIEZAS
+---------------------
+_ModeloProyecto/gradle/libs.versions.toml  --(copiado a)-->  EjemploTodo/gradle, Examen/gradle
+_ModeloProyecto/app/build.gradle.kts       --(copiado a)-->  EjemploTodo/app, Examen/app (namespace cambiado)
+settings.gradle.kts -> incluye :app ; build.gradle.kts raíz -> declara plugins ; app/build.gradle.kts -> los aplica
+Versiones: Gradle 8.9 | AGP 8.7.3 | Kotlin 2.0.21 (+ plugin compose) | Compose BOM 2024.12.01 | SDK 35 | Java 11
+
+EjemploTodo (paquete com.example.ejemplotodo)
+  MainActivity (índice, lista `temas`) --Intent explícito--> cada Activity de tema:
+    CicloVidaActivity, LayoutsActivity, EstadoActivity (calcular() probado en CalculadoraTest),
+    IntentsExplicitosActivity --putExtra/registerForActivityResult--> DestinoActivity --setResult--> vuelve,
+    IntentsImplicitosActivity (alarma, llamada+permiso, dial, web, mapa, email, compartir),
+    VistasXmlActivity -> res/layout/activity_vistas_xml.xml + strings.xml,
+    ListViewSimpleActivity, ListViewPersonalizadoActivity y GridViewActivity -> usan Ejemplo.kt (ejemplosDePrueba()),
+    MenuOpcionesActivity -> res/menu/menu_opciones.xml, MenuContextualActivity,
+    ComposeAvanzadoActivity (LazyColumn/Grid, DropdownMenu, AlertDialog, Snackbar) -> usa Ejemplo.kt
+  RESUMEN.md = chuleta de todo el temario con código.
+
+Examen (paquete com.example.examen)
+  MainActivity --lanzadorResultado--> SegundaActivity --setResult(EXTRA_RESPUESTA)--> MainActivity
+  MainActivity --startActivity--> XmlActivity (res/layout/activity_xml.xml)
+  MainActivity --startActivity--> ListaActivity (ListView + MiAdaptador + menús; usa Elemento.kt y res/menu/menu_principal.xml)
+  MainActivity --comprobarPermiso--> lanzadorPermiso --> accionConPermiso()
+  Utils.kt (toast, dp, TAG) lo usan MainActivity y ListaActivity.
+  EXAMEN.md = guía rápida.
+
+CHANGELOG
+---------
+2026-11-16  Creado _ModeloProyecto (catálogo de versiones común y compatible para todos los proyectos).
+2026-11-16  Creado EjemploTodo (12 temas + RESUMEN.md + test de calculadora). Compila, tests OK.
+2026-11-16  Creado Examen (esqueleto con Compose, XML, ListView, menús, intents, permisos). Compila, tests OK.

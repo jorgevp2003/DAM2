@@ -1,0 +1,135 @@
+PRÁCTICA 3 UT2.2 - Creación de componentes visuales (BotonAccion)
+==================================================================
+
+ESTRUCTURA
+----------
+practica-3/
+├── practica3/                         PROYECTO BOTÓN (biblioteca)  -> Ejercicios 1, 2, 3, 4
+│   ├── pom.xml                        jar-plugin: genera target/BotonAccion.jar (sin Main)
+│   ├── BotonAccion.jar                copia del JAR para entregar
+│   ├── doc/                           Javadoc HTML (abrir doc/index.html)
+│   └── src/
+│       ├── main/java/es/ciudadescolar/
+│       │   ├── Main.java              ventana de prueba (varios botones) - NO va en el JAR
+│       │   └── modelo/BotonAccion.java   EL COMPONENTE (extends Button)
+│       └── test/java/es/ciudadescolar/modelo/
+│           └── BotonAccionTest.java   11 tests JUnit 5 en el hilo de JavaFX
+│
+├── PruebaBotonAccion/                 PROYECTO APLICACIÓN  -> Ejercicios 4 y 5
+│   ├── lib/BotonAccion.jar            el componente como biblioteca
+│   ├── pom.xml                        dependencia <scope>system</scope> + <systemPath>
+│   └── src/main/java/com/ejemplo/
+│       ├── Main.java                  crea FormularioView + FormularioController
+│       ├── modelo/Incidencia.java     datos (equipo, descripcion)
+│       ├── vista/FormularioView.java  formulario (solo controles)
+│       ├── vista/ResumenView.java     resumen (solo controles)
+│       ├── controlador/FormularioController.java  eventos + validación + abre modal
+│       └── controlador/ResumenController.java     muestra datos + Aceptar/Cancelar
+│
+└── practica3_1/                       (proyecto vacío de prueba, no se usa)
+
+
+EJERCICIO 1 - BotonAccion (extends Button)
+-------------------------------------------
+Requisito                  Método
+1 Hereda de Button         class BotonAccion extends Button
+2 Texto                    getTexto() / setTexto()  (llaman a getText/setText de Button)
+3 Color de fondo           setColorFondo / getColorFondo   -> CSS -fx-background-color
+4 Color de texto           setColorTexto / getColorTexto   -> CSS -fx-text-fill
+5 Tamaño de fuente         setTamañoTexto / getTamañoTexto -> CSS -fx-font-size
+                           (<= 0 lanza IllegalArgumentException)
+6 Tooltip                  setTextoAyuda / getTextoAyuda   -> setTooltip(new Tooltip(..))
+7 Activar/desactivar       setActivo / isActivo            -> setDisable(!activo)
+8 Eventos                  setOnAction(...)  (heredado de Button, no hay que programarlo)
+Constructores: BotonAccion(), BotonAccion(texto), BotonAccion(texto, fondo, colorTexto, tamaño)
+
+Truco: los 3 setters de estilo guardan el valor y llaman a actualizarEstilo(), que
+monta UN solo String CSS con todo y hace setStyle(). Si cada setter hiciera su propio
+setStyle(), el último borraría a los anteriores.
+
+
+EJERCICIO 2 - Tests (BotonAccionTest)
+-------------------------------------
+@BeforeAll  -> Platform.startup(...) arranca JavaFX una vez (sin ventana)
+ejecutarEnFX(() -> {...}) -> Platform.runLater + CountDownLatch: ejecuta el código en el
+                             hilo de JavaFX y espera; si falla un assert, lo relanza a JUnit.
+Tests: crear con texto, constructor completo, cambiar texto, color fondo, color texto,
+       tamaño, tooltip, activar/desactivar, fire() ejecuta la acción, rechazo de -1 y de 0
+       (assertThrows(IllegalArgumentException.class, ...)).
+Ejecutar:  cd practica3 && mvn clean test
+
+
+EJERCICIO 3 - Javadoc
+---------------------
+Etiquetas usadas: @author, @version (clase), @param, @return, @throws (setTamañoTexto y
+constructor completo).
+Eclipse: Project > Generate Javadoc... > marcar el proyecto/paquete > Destination: doc
+         > (VM options: -encoding UTF-8 -docencoding UTF-8 -charset UTF-8 si salen tildes raras)
+Por consola (lo que he usado; es la misma herramienta javadoc del JDK):
+  cd practica3
+  javadoc -encoding UTF-8 -docencoding UTF-8 -charset UTF-8 -author -version -d doc
+          -cp "<jars javafx-base, javafx-graphics, javafx-controls de ~/.m2>"
+          -sourcepath src/main/java es.ciudadescolar.modelo
+
+
+EJERCICIO 4 - JAR y segundo proyecto
+------------------------------------
+1. cd practica3 && mvn clean package     -> target/BotonAccion.jar
+   (<finalName>BotonAccion</finalName> y <exclude>Main.class</exclude> en maven-jar-plugin)
+2. Comprobar contenido:  jar tf target/BotonAccion.jar  -> es/ciudadescolar/modelo/BotonAccion.class
+3. Copiar a PruebaBotonAccion/lib/BotonAccion.jar (y a practica3/BotonAccion.jar para entregar)
+4. pom.xml de PruebaBotonAccion:
+     <dependency>
+       <groupId>es.ciudadescolar</groupId><artifactId>BotonAccion</artifactId><version>1.0</version>
+       <scope>system</scope>
+       <systemPath>${project.basedir}/lib/BotonAccion.jar</systemPath>
+     </dependency>
+   Maven avisa (WARNING) de que "system" está obsoleto: es normal, lo pide el enunciado.
+5. Se usa con import es.ciudadescolar.modelo.BotonAccion; sin copiar el .java.
+!! Si cambias BotonAccion.java hay que volver a hacer el paso 1 y 3.
+
+
+EJERCICIO 5 - Registro de incidencias (MVC por código)
+------------------------------------------------------
+Main.start()
+  ├─ new FormularioView()                       (controles)
+  ├─ new FormularioController(vista, stage)     (pone setOnAction a los botones)
+  └─ stage.setScene(new Scene(vista)); show()
+
+[Limpiar]   -> FormularioController.limpiar()  -> clear() de los dos TextField
+[Registrar] -> FormularioController.registrarIncidencia()
+     ├─ algún campo vacío -> lblEstado = "Debe completar el formulario"
+     └─ OK -> new Incidencia(equipo, descripcion)
+              abrirResumen(incidencia):
+                 new Stage + new ResumenView + new ResumenController(vista, stage, incidencia)
+                 initOwner(principal); initModality(Modality.APPLICATION_MODAL)
+                 showAndWait()   <- se queda esperando aquí
+                     [Aceptar]  -> aceptada = true;  close()
+                     [Cancelar] -> aceptada = false; close()
+                 return resumenController.isAceptada()
+              true  -> lblEstado = "Incidencia registrada correctamente."
+              false -> lblEstado = "Registro cancelado."
+
+Comunicación entre ventanas:
+  principal -> secundaria : se pasa la Incidencia en el constructor de ResumenController
+  secundaria -> principal : getter isAceptada() leído después de showAndWait()
+
+Ejecutar:  cd PruebaBotonAccion && mvn clean javafx:run
+
+
+ENTREGA (ZIP)
+-------------
+practica3/  (src, pom.xml, doc/, BotonAccion.jar)   +   PruebaBotonAccion/ (src, pom.xml, lib/)
+No hace falta meter las carpetas target/.
+
+
+CHANGELOG
+---------
+2026-11-15  Práctica completa:
+            - BotonAccion: estilos CSS reales (antes solo guardaba los colores), constructor
+              completo, getTexto/setTexto, tamaño <= 0 lanza IllegalArgumentException, Javadoc.
+            - BotonAccionTest movido al paquete es.ciudadescolar.modelo; 11 tests (antes el
+              tamaño negativo se ignoraba en silencio).
+            - pom practica3: maven-jar-plugin -> BotonAccion.jar sin Main.
+            - doc/ generado con javadoc.
+            - Nuevo proyecto PruebaBotonAccion (lib + systemPath + MVC incidencias).

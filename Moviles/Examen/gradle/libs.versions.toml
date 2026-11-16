@@ -1,0 +1,79 @@
+# =====================================================================
+#  MODELO DE VERSIONES COMÚN PARA TODOS LOS PROYECTOS DE MÓVILES (DAM2)
+# ---------------------------------------------------------------------
+#  Cubre TODO lo usado en los proyectos de la carpeta Moviles:
+#   - Jetpack Compose (KotlinConJetpack, Layout, Layout1, Layout12,
+#     2Activity, Alarma, MyApplication, GridViewPersonalizado)
+#   - Vistas clásicas XML / AppCompat / ConstraintLayout
+#     (Kotlin_Prueba1, CicloDeVida)
+#   - Activity "a pelo" con ListView, GridView, Menús
+#     (ListViewSimple, ListViewPersonalizado, Menus, Menu2)
+#
+#  Combinación probada y compatible entre sí:
+#   Gradle 8.9  <->  AGP 8.7.3  <->  Kotlin 2.0.21  <->  Compose BOM 2024.12.01
+#   compileSdk 35 / targetSdk 35 / minSdk 24 / Java 11
+#
+#  IMPORTANTE (Kotlin 2.x): Compose ya NO usa
+#      composeOptions { kotlinCompilerExtensionVersion = "1.5.1" }
+#  sino el plugin  org.jetbrains.kotlin.plugin.compose  (alias kotlinCompose).
+# =====================================================================
+
+[versions]
+agp = "8.7.3"
+kotlin = "2.0.21"
+
+# --- AndroidX base ---
+coreKtx = "1.15.0"
+lifecycle = "2.8.7"
+activity = "1.9.3"
+
+# --- Compose (el BOM fija la versión de ui, material3, foundation...) ---
+composeBom = "2024.12.01"
+navigationCompose = "2.8.5"
+
+# --- Vistas clásicas (XML) ---
+appcompat = "1.7.0"
+material = "1.12.0"
+constraintlayout = "2.2.0"
+
+# --- Tests ---
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
+[libraries]
+# AndroidX base
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+
+# Compose (sin versión: la pone el BOM)
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+
+# Vistas clásicas
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+# Tests
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+[plugins]
+# Mismos nombres de alias que en vuestros proyectos (androidApplication / jetbrainsKotlinAndroid)
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

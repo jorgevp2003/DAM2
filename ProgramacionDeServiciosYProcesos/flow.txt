@@ -1,0 +1,109 @@
+=============================================================================
+ FLOW - Programación de Servicios y Procesos (DAM2)
+=============================================================================
+
+Estructura general
+------------------
+Cada carpeta es un tema y cada script es un ejercicio independiente que se
+ejecuta por separado (python <script>.py). Solo hay dos dependencias entre
+ficheros, indicadas abajo con "->".
+
+-----------------------------------------------------------------------------
+Tema1_IntroAPY  (introducción a Python)
+-----------------------------------------------------------------------------
+  JorgeVazquez1_Listas1.py               Operaciones con listas: max, media,
+                                         insert, sublistas y lista aleatoria.
+  jorgeVazquez1_bucles_v1.py             for: 6 números -> pares/impares,
+                                         suma de pares y producto de impares.
+  jorgeVazquez1_bucles_v2.py             Igual con while hasta introducir -1.
+  JorgeVazquez1_filtrarPalabras_1.py     Lee texto.txt y cuenta cuántas veces
+                                         aparece la palabra que pide el usuario.
+  JorgeVazquez1_filtrarPalabras_1_V2.py  Lee texto.txt y cuenta TODAS las
+                                         palabras (listas paralelas palabras/veces).
+  Datos: texto.txt (leído por los dos filtrarPalabras).
+
+-----------------------------------------------------------------------------
+Tema1_IntroProcesos  (multiprocessing / subprocess)
+-----------------------------------------------------------------------------
+  JorgeVazquez_procesos_1.py
+      main() --texto--> int_Texto() --append--> texto.txt
+      main() --"-P"--> Process(imprimir) --lee--> texto.txt
+
+  JorgeVazquez_procesos_2.py  ->  procesoExterno.py
+      main() --Popen("python procesoExterno.py", stdout=PIPE)--> lee número
+      Repite hasta que procesoExterno devuelve 7 y muestra los intentos.
+
+  procesoExterno.py
+      Genera un aleatorio 0..20 y lo escribe en stdout (lo lee procesos_2).
+
+  JorgeVazquez_MPComQueue.py
+      main() --> Process(Escritura) --append--> texto2.txt
+                        └--> Process(Lectura) --muestra--> texto2.txt
+
+  JorgeVazquez_MPComQueue2.py
+      main() acumula textos en una lista; con -1:
+      Process(Escritura) --vuelca lista--> texto3.txt --> Process(Lectura)
+
+  JorgeVazquez_Camaras.py
+      main() --> 5 x Process(cam) ; cam() usa vigilaHorizonte()
+      cam --put "id:<n>:<estado>"--> mp.Queue --get--> main()
+      main() cuenta alarmas por cámara y hace kill() al llegar a 3.
+
+  JorgeVazquez_centroVigilancia.py
+      main --> 5 x Process(camara)
+      camara --alertas--> cola_alarma --qsize--> main
+      main   --órdenes ("Apagate")--> cola_control --> camara
+
+  JorgeVazquez_Impresoras.py
+      main --> 5 x Process(impresora)
+      main --trabajos--> cola_trabajos --get--> impresora
+      impresora --"Ok"--> cola_resultados ; si falla reencola el trabajo.
+      "None" = señal de parada que cada impresora reenvía a las demás.
+
+-----------------------------------------------------------------------------
+Tema1_Multihilo  (threading)
+-----------------------------------------------------------------------------
+  JorgeVazquez_area.py
+      main --> 4 hilos (2 rectángulos + 2 triángulos) en secuencia (join)
+      que suman en la variable compartida area.areaTotal.
+
+  JorgeVazquez_hilosEscriben.py
+      main --> 2 hilos escritor(pos): hilo 1 copia la 1ª mitad del texto y
+      hilo 2 la 2ª en usar.textoVuelta.
+
+  JorgeVazquez_hilosEscriben2.py
+      Hilos permanentes que vigilan info.texto y escriben sus mitades en
+      info.textoFinal cuando el usuario introduce un texto nuevo.
+
+  JorgeVazquez_concesionario.py  ->  colas.py
+      main --> fabrica() --> N hilos linea (productores)
+                         --> M hilos concesionario (consumidores)
+      linea --put--> colaCoches (clase cola) --get--> concesionario
+
+  colas.py
+      Clase cola: FIFO propia con capacidad 50 (get, put, isEmpty, qSize).
+
+  JorgeVazquez_comunicacion1.py
+      Pendiente de implementar (solo imports).
+
+  Apuntes.txt (raíz): resumen teórico de threading.
+
+=============================================================================
+ CHANGELOG
+=============================================================================
+2026-11-14  Comentados todos los scripts .py (cabecera con la función de cada
+            fichero, docstrings en funciones y comentarios de línea). No se ha
+            cambiado la lógica; los fallos detectados se marcan con "# NOTA:".
+            Creado este flow.txt.
+2026-11-14  Creado README.md (raíz): chuleta de examen con referencia de
+            threading, queue, multiprocessing y subprocess, 13 plantillas
+            reutilizables ya corregidas (productor-consumidor, reintentos,
+            cámaras/alarmas, Lock, Semaphore, turnos, ficheros, subprocess...),
+            tabla de errores típicos y mapa ejercicio del repo -> plantilla.
+            Todas las plantillas de la sección 7 probadas y funcionando.
+2026-11-14  README.md reducido a solo la referencia de comandos de cada
+            import usado en el repo (threading, multiprocessing, queue,
+            subprocess, os, sys, time, random, collections.deque,
+            unicodedata). Eliminadas plantillas, errores típicos y mapa.
+2026-11-14  JorgeVazquez_centroVigilancia.py (cambio del usuario): las 5
+            cámaras se crean una sola vez, antes del bucle principal.

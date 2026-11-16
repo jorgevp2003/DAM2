@@ -1,0 +1,42 @@
+INTERFACES - FLUJO GENERAL
+==========================
+
+Todos los proyectos usan el MISMO pom.xml (solo cambian artifactId, name y javafx.mainClass):
+  - Java release 21 (funciona con JDK 21, 25, 27...)  -> enforcer exige [21,)
+  - JavaFX 23 (controls + fxml), JUnit Jupiter 5.10.0 (test)
+  - Plugins: enforcer 3.6.2, compiler 3.11.0, surefire 3.5.4, javafx-maven-plugin 0.0.8
+  - groupId es.ciudadescolar
+Todas las versiones están en ~/.m2 -> compila sin internet (mvn -o).
+
+pom.xml (raíz) = agregador: "mvn clean verify" compila y testea todos los proyectos.
+
+PROYECTOS                    mainClass                    Contenido
+ejercicio1/ejercicio1        com.example.Main             FXML alta empleado + validaciones
+Practica-2/practica2         es.ciudadescolar.Main        FXML reservas (SplitPane)
+practica-3/practica3         es.ciudadescolar.Main        Componente BotonAccion + tests + Javadoc + BotonAccion.jar
+practica-3/PruebaBotonAccion com.ejemplo.Main             Usa BotonAccion.jar (lib/systemPath): registro incidencias MVC
+                             (detalle de la práctica 3 en practica-3/flow.txt)
+practica-3/practica3_1       com.example.Main             Ventana mínima JavaFX
+tema3                        es.ciudadescolar.Main        Componente CampoTexto
+tema3-2                      es.ciudadescolar.Main        MVC por código + tests CampoTexto/DNI
+examen                       es.ciudadescolar.Main        PROYECTO BASE con todo lo anterior (ver examen/flow.txt)
+
+Ejecutar uno:  cd <proyecto> && mvn clean javafx:run
+   o desde la raíz:  mvn clean javafx:run -pl <proyecto>   (ej: -pl examen)
+
+CHANGELOG
+---------
+2026-11-15  Unificación de todos los pom.xml (antes exigían Java 25 y el java por defecto es 21;
+            examen y practica3_1 no tenían JavaFX; JUnit 5.12.2 no estaba descargado).
+            FXML: xmlns javafx/25 -> javafx/23 (evita aviso de versión).
+            Arreglos de compilación: ejercicio1 (radioJornada era ComboBox -> RadioButton),
+            tema3 (FormularioView estaba incompleto), tema3-2 (faltaba '}' en guardarPersona).
+            Nuevo pom.xml agregador en la raíz. Nuevo proyecto base "examen".
+2026-11-15  "mvn javafx:run" no funcionaba:
+            - En la raíz (agregador) faltaba el plugin -> añadido javafx-maven-plugin con skip=true;
+              usar "mvn clean javafx:run -pl <proyecto>".
+            - practica3 y practica3_1: Main solo imprimía "Hello world!" (no abría ventana) ->
+              ahora extienden Application (practica3 muestra BotonAccion).
+2026-11-15  Práctica 3 UT2.2 completa (ver practica-3/flow.txt): BotonAccion terminado y
+            documentado, JAR, Javadoc en practica3/doc, nuevo módulo PruebaBotonAccion.
+            Código comentado a fondo para poder usarlo como referencia en el examen.

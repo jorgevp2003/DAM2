@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Ejecutar examen (Lanzador)",
+            "request": "launch",
+            "mainClass": "es.ciudadescolar.Lanzador",
+            "projectName": "examen"
+        }
+    ]
+}

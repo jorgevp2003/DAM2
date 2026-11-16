@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EjemploTodo</string>
+    <string name="titulo_xml">Vistas XML</string>
+    <string name="hint_nombre">Tu nombre</string>
+    <string name="saludar">Saludar</string>
+    <!-- %1$s = primer parámetro de tipo String  -> getString(R.string.saludo, nombre) -->
+    <string name="saludo">¡Hola %1$s!</string>
+</resources>
