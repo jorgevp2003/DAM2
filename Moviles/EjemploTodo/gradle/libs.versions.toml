@@ -10,8 +10,10 @@
 #     (ListViewSimple, ListViewPersonalizado, Menus, Menu2)
 #
 #  Combinación probada y compatible entre sí:
-#   Gradle 8.9  <->  AGP 8.7.3  <->  Kotlin 2.0.21  <->  Compose BOM 2024.12.01
-#   compileSdk 35 / targetSdk 35 / minSdk 24 / Java 11
+#   Gradle 8.4  <->  AGP 8.3.2  <->  Kotlin 2.0.21  <->  Compose BOM 2024.09.03
+#   compileSdk 35 / targetSdk 34 / minSdk 24 / Java 11
+#   (AGP 8.3.2 = maximo que soporta el Android Studio instalado:
+#    compileSdk 35 va con suppressUnsupportedCompileSdk; NO subir core-ktx 1.15+)
 #
 #  IMPORTANTE (Kotlin 2.x): Compose ya NO usa
 #      composeOptions { kotlinCompilerExtensionVersion = "1.5.1" }
@@ -19,22 +21,22 @@
 # =====================================================================
 
 [versions]
-agp = "8.7.3"
+agp = "8.3.2"
 kotlin = "2.0.21"
 
 # --- AndroidX base ---
-coreKtx = "1.15.0"
-lifecycle = "2.8.7"
-activity = "1.9.3"
+coreKtx = "1.13.1"
+lifecycle = "2.8.6"
+activity = "1.9.2"
 
 # --- Compose (el BOM fija la versión de ui, material3, foundation...) ---
-composeBom = "2024.12.01"
-navigationCompose = "2.8.5"
+composeBom = "2024.09.03"
+navigationCompose = "2.8.2"
 
 # --- Vistas clásicas (XML) ---
 appcompat = "1.7.0"
 material = "1.12.0"
-constraintlayout = "2.2.0"
+constraintlayout = "2.1.4"
 
 # --- Tests ---
 junit = "4.13.2"

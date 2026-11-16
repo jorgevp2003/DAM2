@@ -11,8 +11,10 @@ EjemploTodo (paquete com.example.ejemplotodo)
     ComposeAvanzadoActivity (LazyColumn/Grid, DropdownMenu, AlertDialog, Snackbar) -> usa Ejemplo.kt
   RESUMEN.md = chuleta de todo el temario con código.
 
-Build: Gradle 8.9 | AGP 8.7.3 | Kotlin 2.0.21 | Compose BOM 2024.12.01 (ver ../_ModeloProyecto)
+Build: Gradle 8.4 | AGP 8.3.2 | Kotlin 2.0.21 | Compose BOM 2024.09.03 | SDK 34 (ver ../_ModeloProyecto)
 
 CHANGELOG
 ---------
 2026-11-16  Proyecto creado. 12 temas + RESUMEN.md + CalculadoraTest. assembleDebug y tests OK.
+2026-11-16  Bajado a AGP 8.3.2 + Gradle 8.4 + compileSdk 35/targetSdk 34 (Android Studio instalado no soporta AGP 8.7.3). core-ktx 1.13.1, BOM 2024.09.03; quitado values-v35. assembleDebug y tests OK.
+2026-11-16  compileSdk vuelto a 35 (no hay platforms;android-34 instalado). minSdk 21 para poder probar en el AVD de API 21. assembleDebug OK.

@@ -41,3 +41,4 @@ CHANGELOG
 2026-11-16  Creado _ModeloProyecto (catálogo de versiones común y compatible para todos los proyectos).
 2026-11-16  Creado EjemploTodo (12 temas + RESUMEN.md + test de calculadora). Compila, tests OK.
 2026-11-16  Creado Examen (esqueleto con Compose, XML, ListView, menús, intents, permisos). Compila, tests OK.
+2026-11-16  _ModeloProyecto/Examen/EjemploTodo bajados a AGP 8.3.2 + Gradle 8.4 + compileSdk 35/targetSdk 34 (máximo AGP soportado por el Android Studio instalado).

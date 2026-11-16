@@ -183,4 +183,4 @@ override fun onContextItemSelected(item: MenuItem): Boolean { ... }
 - `by remember` en rojo → faltan imports `getValue` y `setValue`.
 - `TopAppBar` en rojo → `@OptIn(ExperimentalMaterial3Api::class)`.
 - Kotlin 2.x + Compose → plugin `kotlinCompose` (no `composeOptions`).
-- Contenido debajo de la barra de estado en Android 15 → `values-v35/themes.xml` con `windowOptOutEdgeToEdgeEnforcement` (ya incluido).
+- Contenido debajo de la barra de estado en Android 15 → con `targetSdk = 34` no pasa (edge-to-edge solo es obligatorio con targetSdk 35).

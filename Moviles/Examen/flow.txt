@@ -8,8 +8,9 @@ Examen (paquete com.example.examen)
   Utils.kt (toast, dp, TAG) lo usan MainActivity y ListaActivity.
   EXAMEN.md = guía rápida.
 
-Build: Gradle 8.9 | AGP 8.7.3 | Kotlin 2.0.21 | Compose BOM 2024.12.01 (ver ../_ModeloProyecto)
+Build: Gradle 8.4 | AGP 8.3.2 | Kotlin 2.0.21 | Compose BOM 2024.09.03 | SDK 34 (ver ../_ModeloProyecto)
 
 CHANGELOG
 ---------
 2026-11-16  Esqueleto creado (Main/Segunda/Xml/Lista Activity, Elemento, Utils). assembleDebug y tests OK.
+2026-11-16  Bajado a AGP 8.3.2 + Gradle 8.4 + compileSdk 35/targetSdk 34 (Android Studio instalado no soporta AGP 8.7.3). core-ktx 1.13.1, BOM 2024.09.03; quitado values-v35. assembleDebug y tests OK.

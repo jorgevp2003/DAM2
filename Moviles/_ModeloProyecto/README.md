@@ -7,11 +7,11 @@ Activity clásicas con ListView/GridView/Menús). La usan `EjemploTodo` y `Exame
 ## Versiones
 | Pieza | Versión | Antes (proyectos de clase) |
 |---|---|---|
-| Gradle (wrapper) | 8.9 (ya descargado en `~/.gradle`) | 8.4 / 8.9 |
-| AGP | 8.7.3 | 8.3.2 |
+| Gradle (wrapper) | 8.4 (ya descargado en `~/.gradle`) | 8.4 / 8.9 |
+| AGP | 8.3.2 (máximo que soporta el Android Studio instalado) | 8.3.2 |
 | Kotlin | 2.0.21 + plugin `kotlin.plugin.compose` | 1.9.0 y 2.1.20 mezclados |
-| Compose BOM | 2024.12.01 | 2023.08.00 / 2024.06.00 |
-| compileSdk / targetSdk / minSdk | 35 / 35 / 24 | 34 / 34 / 21-24 |
+| Compose BOM | 2024.09.03 | 2023.08.00 / 2024.06.00 |
+| compileSdk / targetSdk / minSdk | 35 / 34 / 24 (solo está instalado el SDK 35; `android.suppressUnsupportedCompileSdk=35` en gradle.properties) | 34 / 34 / 21-24 |
 | Java | 11 | 1.8 |
 
 Por qué había problemas: algunos proyectos tenían Kotlin 2.1.20 con `composeOptions { kotlinCompilerExtensionVersion = "1.5.1" }`
@@ -21,7 +21,7 @@ que necesitan compileSdk/AGP más nuevos que los configurados.
 ## Ficheros
 ```
 gradle/libs.versions.toml         <- catálogo de versiones (lo importante)
-gradle/wrapper/                   <- Gradle 8.9
+gradle/wrapper/                   <- Gradle 8.4
 build.gradle.kts                  <- plugins (apply false)
 settings.gradle.kts               <- repos + nombre del proyecto
 gradle.properties
@@ -40,9 +40,8 @@ app/build.gradle.kts              <- android { } + dependencias (Compose + XML +
 3. En `app/build.gradle.kts`:
    - añadir `alias(libs.plugins.kotlinCompose)` en `plugins { }`
    - **quitar** el bloque `composeOptions { ... }`
-   - `compileSdk = 35`, `targetSdk = 35`, Java/jvmTarget 11
+   - `compileSdk = 35`, `targetSdk = 34`, Java/jvmTarget 11, y copiar `android.suppressUnsupportedCompileSdk=35` a gradle.properties
    - en el catálogo, `lifecycleRuntimeKtx` / `activityCompose` pasan a llamarse `lifecycle` / `activity`
      (los alias de las librerías son los mismos: `libs.androidx.lifecycle.runtime.ktx`, `libs.androidx.activity.compose`...)
 4. Proyectos con `Kotlin_Prueba1/app/build.gradle` (Groovy): usar `app/build.gradle.kts` de aquí.
-5. Si el contenido se mete bajo la barra de estado en Android 15: copiar `res/values-v35/themes.xml` de `Examen`
-   (cambiando el nombre del tema).
+5. Con AGP 8.3.2 no subir a core-ktx 1.15+ / BOM 2024.12+ / targetSdk 35 (piden AGP más nuevo).
