@@ -9,6 +9,8 @@ EjemploTodo (paquete com.example.ejemplotodo)
     ListViewSimpleActivity, ListViewPersonalizadoActivity y GridViewActivity -> usan Ejemplo.kt (ejemplosDePrueba()),
     MenuOpcionesActivity -> res/menu/menu_opciones.xml, MenuContextualActivity,
     ComposeAvanzadoActivity (LazyColumn/Grid, DropdownMenu, AlertDialog, Snackbar) -> usa Ejemplo.kt
+  MainBoxActivity (2º índice, también LAUNCHER): SIN lista; cada tema es su propio Box con su clickable -> mismo Intent explícito
+    a cada Activity de tema. Su último Box abre MainActivity.
   RESUMEN.md = chuleta de todo el temario con código.
 
 Build: Gradle 8.4 | AGP 8.3.2 | Kotlin 2.0.21 | Compose BOM 2024.09.03 | SDK 34 (ver ../_ModeloProyecto)
@@ -18,3 +20,5 @@ CHANGELOG
 2026-11-16  Proyecto creado. 12 temas + RESUMEN.md + CalculadoraTest. assembleDebug y tests OK.
 2026-11-16  Bajado a AGP 8.3.2 + Gradle 8.4 + compileSdk 35/targetSdk 34 (Android Studio instalado no soporta AGP 8.7.3). core-ktx 1.13.1, BOM 2024.09.03; quitado values-v35. assembleDebug y tests OK.
 2026-11-16  compileSdk vuelto a 35 (no hay platforms;android-34 instalado). minSdk 21 para poder probar en el AVD de API 21. assembleDebug OK.
+2026-11-17  RESUMEN.md: secciones 7-9 (ListView simple / personalizado / GridView) separadas y ampliadas con código completo.
+2026-11-17  Añadido MainBoxActivity (2º índice sin lista, un Box por tema, 2º icono LAUNCHER). assembleDebug OK.

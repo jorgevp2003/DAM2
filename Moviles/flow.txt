@@ -42,3 +42,5 @@ CHANGELOG
 2026-11-16  Creado EjemploTodo (12 temas + RESUMEN.md + test de calculadora). Compila, tests OK.
 2026-11-16  Creado Examen (esqueleto con Compose, XML, ListView, menús, intents, permisos). Compila, tests OK.
 2026-11-16  _ModeloProyecto/Examen/EjemploTodo bajados a AGP 8.3.2 + Gradle 8.4 + compileSdk 35/targetSdk 34 (máximo AGP soportado por el Android Studio instalado).
+2026-11-17  RESUMEN.md: ListView ampliado (secciones 7 simple, 8 personalizado, 9 GridView separadas; click largo, notifyDataSetChanged, fila XML con convertView).
+2026-11-17  EjemploTodo: añadido MainBoxActivity (2º índice sin lista; cada tema es su propio Box clickable). assembleDebug OK.

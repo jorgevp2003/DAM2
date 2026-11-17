@@ -48,6 +48,17 @@
             </intent-filter>
         </activity>
 
+        <!-- SEGUNDO índice: cada tema es su propio Box. También LAUNCHER = segundo icono en el móvil -->
+        <activity
+            android:name=".MainBoxActivity"
+            android:exported="true"
+            android:label="EjemploTodo Box">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <!-- ===== TODAS las Activity tienen que estar aquí ===== -->
         <activity android:name=".CicloVidaActivity" android:exported="false" />
         <activity android:name=".LayoutsActivity" android:exported="false" />
