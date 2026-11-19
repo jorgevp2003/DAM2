@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 import java.util.ArrayList
 
 
@@ -34,6 +35,16 @@ class MainActivity : Activity() {
 
         val adaptadorEjemplo = MiAdaptadorEjemplo(this, ejemploList)
         lista.adapter = adaptadorEjemplo
+
+        // CLICK EN UN ELEMENTO: saca un mensaje (Toast) con los datos de la fila pulsada
+        lista.setOnItemClickListener { _, _, pos, _ ->
+            val elemento = ejemploList[pos]
+            Toast.makeText(
+                this,
+                "Has pulsado: ${elemento.titulo} (nº ${elemento.numeroEjemplo})",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     class MiAdaptadorEjemplo(

@@ -1,6 +1,7 @@
 package com.example.ejemplotodo
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
@@ -36,8 +37,23 @@ class ListViewPersonalizadoActivity : Activity() {
         ejemploList = ejemplosDePrueba()
         lista.adapter = MiAdaptadorEjemplo(this, ejemploList)
 
+        // CLICK EN UN ELEMENTO: saca un MENSAJE (AlertDialog) con los datos de la fila pulsada
         lista.setOnItemClickListener { _, _, pos, _ ->
-            Toast.makeText(this, "Pulsado: ${ejemploList[pos].titulo}", Toast.LENGTH_SHORT).show()
+            val elemento = ejemploList[pos]
+            AlertDialog.Builder(this)
+                .setTitle(elemento.titulo)
+                .setMessage("Has pulsado el elemento ${pos + 1}\n\n" +
+                        "Subtítulo: ${elemento.subtitulo}\n" +
+                        "Número: ${elemento.numeroEjemplo}")
+                .setIcon(R.mipmap.ic_launcher)
+                .setPositiveButton("Aceptar") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
+
+        // CLICK LARGO: mensaje corto (Toast). Devolver true = evento consumido
+        lista.setOnItemLongClickListener { _, _, pos, _ ->
+            Toast.makeText(this, "Pulsación larga: ${ejemploList[pos].titulo}", Toast.LENGTH_SHORT).show()
+            true
         }
     }
 
