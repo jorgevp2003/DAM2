@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+   <children>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fx:id="text_titulo" strokeType="OUTSIDE" strokeWidtcdh="0.0" style="-fx-font-family: Arial;" text="Acceso al sistema" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="40.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <MenuBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="123.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="100.0" right="30.0" />
+               </GridPane.margin>
+            </MenuBar>
+         </children>
+      </GridPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Arial;" text="Usuario">
+         <VBox.margin>
+            <Insets left="40.0" top="20.0" />
+         </VBox.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField prefHeight="39.0" prefWidth="600.0" promptText="Introduce tu usuario" style="-fx-border-width: 8; -fx-border-color: #CBD5E1; -fx-border-radius: 10;">
+         <opaqueInsets>
+            <Insets left="20.0" right="20.0" />
+         </opaqueInsets>
+         <font>
+            <Font size="19.0" />
+         </font>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" />
+         </VBox.margin>
+      </TextField>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Arial;" text="Contraseña">
+         <VBox.margin>
+            <Insets left="40.0" top="20.0" />
+         </VBox.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField prefHeight="39.0" prefWidth="600.0" promptText="Introduce tu contraseña" style="-fx-border-width: 8; -fx-border-color: #CBD5E1; -fx-border-radius: 10;">
+         <opaqueInsets>
+            <Insets left="20.0" right="20.0" />
+         </opaqueInsets>
+         <font>
+            <Font size="19.0" />
+         </font>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" />
+         </VBox.margin>
+      </TextField>
+      <Text fill="#828181" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce tus credeciales para acceder">
+         <VBox.margin>
+            <Insets left="30.0" top="20.0" />
+         </VBox.margin>
+      </Text>
+   </children>
+</VBox>

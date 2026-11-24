@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ciudadescolar.ReservasControler">
    <items>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -19,7 +19,7 @@
                   <Insets left="20.0" top="10.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtNombre" prefHeight="0.0" prefWidth="295.0" text="Nombre de cliente">
+            <TextField fx:id="txtNombre" prefHeight="0.0" prefWidth="295.0" promptText="Nombre de cliente">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
@@ -29,7 +29,7 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtApellido" text="Apellidos">
+            <TextField fx:id="txtApellido" promptText="Apellidos">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
@@ -39,7 +39,7 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtDNI" text="DNI">
+            <TextField fx:id="txtDNI" promptText="DNI">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
@@ -59,7 +59,7 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtTelefono" text="666666666">
+            <TextField fx:id="txtTelefono" promptText="666666666">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
@@ -69,7 +69,7 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtCorreo" text="ejemplo@gmail.com">
+            <TextField fx:id="txtEmail" promptText="ejemplo@gmail.com">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
@@ -148,7 +148,7 @@
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="buttonCrear" mnemonicParsing="false" prefHeight="41.0" prefWidth="129.0" text="Reservar">
+            <Button fx:id="buttonCrear" mnemonicParsing="false" onAction="#crearReserva" prefHeight="41.0" prefWidth="129.0" text="Reservar">
                <VBox.margin>
                   <Insets left="80.0" top="20.0" />
                </VBox.margin>
