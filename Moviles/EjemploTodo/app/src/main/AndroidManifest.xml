@@ -4,6 +4,7 @@
 
     <!-- ===================== PERMISOS ===================== -->
     <!-- Normal: se concede al instalar -->
+
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <!-- Peligroso: además hay que pedirlo en tiempo de ejecución -->
     <uses-permission android:name="android.permission.CALL_PHONE" />

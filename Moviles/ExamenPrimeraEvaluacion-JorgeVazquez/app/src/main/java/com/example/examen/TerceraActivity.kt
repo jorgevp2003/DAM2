@@ -14,7 +14,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 
-class Tercera : Activity() {
+class TerceraActivity : Activity() {
 
     private lateinit var view: GridView
     private lateinit var ejemploList: MutableList<Ejemplo>

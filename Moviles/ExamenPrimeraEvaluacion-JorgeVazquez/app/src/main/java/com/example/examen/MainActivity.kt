@@ -101,21 +101,23 @@ fun PantallaPrincipal() {
                                     )
                                 )
                             })
-                        BotonAncho("Llamar (pide permiso)") {
-                           /* val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
-                                putExtra(AlarmClock.EXTRA_MESSAGE, "Hola")
-                                putExtra(AlarmClock.EXTRA_HOUR, 11)
-                                putExtra(AlarmClock.EXTRA_MINUTES, 20)
-                            }
-                            lanzar(intent)*/
-                        }
                         DropdownMenuItem(
-                            text = { Text("Menu") },
+                            text = { Text("2. Poner alarma") },
                             onClick = {
                                 context.startActivity(
                                     Intent(
                                         context,
-                                        Tercera::class.java
+                                        SegundaActivity::class.java
+                                    )
+                                )
+                            })
+                        DropdownMenuItem(
+                            text = { Text("3. Menu") },
+                            onClick = {
+                                context.startActivity(
+                                    Intent(
+                                        context,
+                                        TerceraActivity::class.java
                                     )
                                 )
                             })

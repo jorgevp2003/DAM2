@@ -51,6 +51,7 @@
 
         <!-- ===== TODAS las Activity tienen que estar aquí ===== -->
         <activity android:name=".SegundaActivity" android:exported="false" />
+        <activity android:name=".TerceraActivity" android:exported="false"/>
 
 
         <!-- Activity "clásicas" (android.app.Activity + Toolbar): tema del framework -->
